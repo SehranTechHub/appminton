@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion – Appminton</title>
+    <meta name="description" content="Instructions for deleting your Appminton account.">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green:  #10b981;
+            --bg:     #111827;
+            --bg2:    #1f2937;
+            --bg3:    #374151;
+            --text:   #f9fafb;
+            --muted:  #9ca3af;
+            --border: #1f2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(17, 24, 39, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--green);
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--text); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        @media (max-width: 600px) { .nav-links { display: none; } }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            background: radial-gradient(ellipse at 50% 0%, #1a2f25 0%, var(--bg) 65%);
+            padding: 4rem 2rem 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header-inner {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .page-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .last-updated {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* ── CONTENT ── */
+        .content {
+            max-width: 760px;
+            margin: auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .content > p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 1.25rem 0 0.4rem;
+        }
+
+        .section p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .section ul {
+            list-style: none;
+            margin: 0.25rem 0 0.75rem;
+            padding: 0;
+        }
+
+        .section ul li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding: 0.3rem 0 0.3rem 1.25rem;
+            position: relative;
+        }
+
+        .section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.72rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            opacity: 0.6;
+        }
+
+        .section a { color: var(--green); text-decoration: none; }
+        .section a:hover { text-decoration: underline; }
+
+        .steps {
+            background: var(--bg2);
+            border-left: 3px solid var(--green);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .steps ol {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .steps li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box p {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        footer .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        footer .footer-links a:hover { color: var(--text); }
+
+        footer p { color: var(--bg3); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">App<span>minton</span></a>
+        <ul class="nav-links">
+            <li><a href="/landing">Home</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/account-deletion">Account Deletion</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="page-label">Account Management</div>
+        <h1>Account Deletion</h1>
+        <span class="last-updated">Last updated: 5 May 2026</span>
+    </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="content">
+
+    <p>This page explains how to delete your Appminton account. Account deletion is a permanent action that removes all your personal data from our system (within 30 days). Please review the following information carefully before proceeding.</p>
+
+    <div class="section">
+        <h2>How to Delete Your Account</h2>
+        <p>You can delete your account directly from the Appminton mobile application. Follow these steps:</p>
+
+        <div class="steps">
+            <ol>
+                <li>Open the Appminton mobile app</li>
+                <li>Navigate to <strong>Settings</strong> (gear icon)</li>
+                <li>Select <strong>Account</strong> from the menu</li>
+                <li>Scroll down to the bottom and tap <strong>Delete Account</strong></li>
+                <li>You will be asked to confirm your decision. Enter your password or authenticate using biometric verification</li>
+                <li>Tap <strong>Confirm Deletion</strong></li>
+                <li>Your account will be deleted, and you will be logged out automatically</li>
+            </ol>
+        </div>
+
+        <p>Once deletion is initiated, your account cannot be recovered. A confirmation email will be sent to your registered email address.</p>
+    </div>
+
+    <div class="section">
+        <h2>Alternative: Request Deletion via Email</h2>
+        <p>If you prefer to request account deletion without using the app, you can contact our support team directly:</p>
+        <p><strong>Email:</strong> <a href="mailto:support@appminton.com">support@appminton.com</a></p>
+        <p>Please include your registered email address in your request. We will process your deletion request within 7 business days.</p>
+    </div>
+
+    <div class="section">
+        <h2>What Gets Deleted</h2>
+        <p>When your account is deleted, the following data is permanently removed within 30 days:</p>
+        <ul>
+            <li>Your account profile (name, email, profile picture)</li>
+            <li>Your personal settings and preferences</li>
+            <li>Your session history and attendance records</li>
+            <li>Game scores and personal statistics</li>
+            <li>Your Serve credit balance (non-refundable)</li>
+            <li>Your push notification preferences and device tokens</li>
+            <li>Any groups you created (if you are the sole member)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>What Is NOT Deleted</h2>
+        <p>Certain information may persist in our system for operational, legal, or financial reasons:</p>
+        <ul>
+            <li><strong>Session records:</strong> Historical sessions you participated in may remain in the database to maintain the integrity of other players' session records (names are anonymized)</li>
+            <li><strong>Payment records:</strong> Transactions and settlement records are retained for financial auditing and tax compliance purposes</li>
+            <li><strong>Audit logs:</strong> Anonymized activity logs may be retained for security and abuse prevention</li>
+        </ul>
+        <p>No personal identifiable information will be associated with these retained records.</p>
+    </div>
+
+    <div class="warning-box">
+        <p><strong>⚠️ Important:</strong> Account deletion is permanent and irreversible. Once deleted, you cannot recover your account, session history, or Serve credits. If you created sessions that are still ongoing, you may wish to transfer ownership to another organizer before deleting your account.</p>
+    </div>
+
+    <div class="section">
+        <h2>Impact on Groups and Sessions</h2>
+        <p><strong>Groups you created:</strong> If you are the sole organizer of a group, the group may be deactivated or transferred based on our policies.</p>
+        <p><strong>Sessions you organized:</strong> Ongoing or future sessions will be affected. We recommend transferring session management responsibilities to another organizer before deleting your account.</p>
+        <p><strong>Sessions you joined:</strong> Your attendance records will be anonymized, but the session will remain in other players' histories.</p>
+    </div>
+
+    <div class="section">
+        <h2>Data Deletion Timeline</h2>
+        <ul>
+            <li><strong>Immediate:</strong> Your account is disabled and you are logged out. The app will no longer recognize your credentials.</li>
+            <li><strong>Within 24 hours:</strong> Your personal data is queued for deletion from our primary database</li>
+            <li><strong>Within 30 days:</strong> All personal data is permanently deleted from our systems and backups</li>
+            <li><strong>Note:</strong> Due to database backup cycles, complete removal may take up to 30 days</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Before You Delete</h2>
+        <p>Please consider the following before deleting your account:</p>
+        <ul>
+            <li>Ensure any outstanding payment obligations are settled (although anonymized records will remain)</li>
+            <li>Download any important information you wish to retain (we do not provide data export features)</li>
+            <li>Transfer ownership of any groups or sessions you manage</li>
+            <li>Inform fellow players if they need to contact you before deletion</li>
+            <li>This action is permanent and cannot be undone</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Restrictions on Re-registration</h2>
+        <p>After deleting your account, you may register a new account using the same email address after a 30-day period. This is to ensure all data is completely purged from our system.</p>
+    </div>
+
+    <div class="section">
+        <h2>Privacy and Compliance</h2>
+        <p>Account deletion is conducted in compliance with Malaysia's <strong>Personal Data Protection Act 2010 (PDPA)</strong>. We are committed to respecting your right to erasure under applicable data protection laws. For more information, see our <a href="/privacy">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section">
+        <h2>Need Help?</h2>
+        <p>If you have questions about account deletion or need assistance, please contact our support team:</p>
+        <p><strong>Email:</strong> <a href="mailto:support@appminton.com">support@appminton.com</a></p>
+        <p>We will respond to your inquiry within 24 hours.</p>
+    </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <span class="footer-logo">Appminton</span>
+    <p>&copy; 2026 Appminton. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
