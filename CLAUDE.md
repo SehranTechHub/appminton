@@ -14,6 +14,7 @@ The project is entirely static HTML with embedded CSS (no JavaScript build proce
 - **Account deletion page** (`account-deletion/index.html`) - Legal/user account deletion page
 - **Privacy policy** (`privacy/index.html`) - Privacy policy page
 - **Terms of service** (`terms/index.html`) - Terms of service page
+- **Contact page** (`contact/index.html`) - Contact/support page
 - **Assets** - Logo, favicons, and other static resources (PNG images, ICO files)
 - **CNAME file** - DNS configuration for GitHub Pages deployment to `appminton.com`
 
@@ -33,7 +34,7 @@ Open any `.html` file directly in a browser (e.g., `open index.html`). Since the
 ### Editing content
 Edit the relevant `.html` files directly:
 - Update main marketing copy, features, or calls-to-action in `index.html`
-- Update legal pages in `privacy/index.html`, `terms/index.html`, or `account-deletion/index.html`
+- Update legal/support pages in `privacy/index.html`, `terms/index.html`, `account-deletion/index.html`, or `contact/index.html`
 
 ### Adding or replacing assets
 - Place images in the root directory or subdirectories
@@ -47,7 +48,7 @@ Edit the relevant `.html` files directly:
 - Test responsive behavior by resizing the browser window
 
 ### Publishing changes
-The site automatically deploys to `https://www.appminton.com/` via GitHub Pages when commits are pushed to the main branch. No build step is required.
+The site automatically deploys to `https://appminton.com/` via GitHub Pages when commits are pushed to the main branch. No build step is required.
 
 ## Important Notes
 
