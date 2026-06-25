@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features – Appminton</title>
+    <meta name="description" content="Explore Appminton's features — session scheduling, fair payment splitting, shuttle tracking, group management, ELO-based ranking, and an organizer dashboard for badminton groups.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green:   #10b981;
+            --green-d: #059669;
+            --bg:      #111827;
+            --bg2:     #1f2937;
+            --bg3:     #374151;
+            --text:    #f9fafb;
+            --muted:   #9ca3af;
+            --border:  #1f2937;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(17, 24, 39, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--green);
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--text); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* ── HERO ── */
+        .hero {
+            background: radial-gradient(ellipse at 50% 0%, #1a2f25 0%, var(--bg) 65%);
+            text-align: center;
+            padding: 7rem 2rem 5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 99px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.15;
+            max-width: 800px;
+            margin: 0 auto 1.25rem;
+        }
+
+        .hero h1 .accent { color: var(--green); }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+
+        .btn-ghost {
+            border: 1px solid var(--bg3);
+            color: var(--text);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-ghost:hover { border-color: var(--green); background: rgba(16,185,129,0.06); }
+
+        /* ── SECTION SHARED ── */
+        section { padding: 5rem 2rem; }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 520px;
+            margin-bottom: 0;
+        }
+
+        /* ── FEATURE SHOWCASE ROWS ── */
+        .feature-rows {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            padding: 4.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-row:last-child { border-bottom: none; }
+
+        /* Alternate image to the right on even rows */
+        .feature-row:nth-child(even) .feature-media { order: 2; }
+
+        .feature-text .feature-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green);
+            margin-bottom: 0.9rem;
+        }
+
+        .feature-text h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .feature-text > p {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-highlights {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .feature-highlights li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+
+        .feature-highlights li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            margin-top: 0.2rem;
+            border-radius: 50%;
+            background: rgba(16,185,129,0.15);
+            border: 1px solid rgba(16,185,129,0.4);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* ── PHONE SCREENSHOT FRAME ── */
+        .feature-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 260px;
+            max-width: 100%;
+            aspect-ratio: 9 / 19.5;
+            background: var(--bg2);
+            border: 1px solid var(--bg3);
+            border-radius: 32px;
+            padding: 10px;
+            box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6);
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 46%;
+            height: 18px;
+            background: var(--bg);
+            border-radius: 0 0 12px 12px;
+            z-index: 2;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(160deg, #16241c 0%, var(--bg) 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .phone-placeholder {
+            padding: 1rem;
+            opacity: 0.7;
+        }
+
+        .phone-placeholder .ph-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        @media (max-width: 760px) {
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+                padding: 3.5rem 0;
+            }
+            .feature-row:nth-child(even) .feature-media { order: 0; }
+            .feature-media { order: -1; }
+        }
+
+        /* ── CTA BANNER ── */
+        .cta-banner {
+            background: radial-gradient(ellipse at 50% 50%, #1a2f25 0%, var(--bg) 70%);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .cta-banner h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-banner p { color: var(--muted); margin-bottom: 2rem; }
+
+        /* ── STORE BADGES ── */
+        .store-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--text);
+            color: #111827;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: opacity 0.2s, transform 0.15s;
+            min-width: 148px;
+        }
+
+        .store-badge:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        .store-badge svg { flex-shrink: 0; }
+
+        .store-badge-text { text-align: left; line-height: 1.2; }
+        .store-badge-text small { display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.65; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        footer .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        footer .footer-links a:hover { color: var(--text); }
+
+        footer p { color: var(--bg3); font-size: 0.8rem; }
+
+        /* ── RESPONSIVE NAV ── */
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">App<span>minton</span></a>
+        <ul class="nav-links">
+            <li><a href="/features">Features</a></li>
+            <li><a href="/#how-it-works">How it works</a></li>
+            <li><a href="/#payments">Payments</a></li>
+            <li><a href="/about">About Us</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="badge">Features</div>
+    <h1>Take a closer look at<br><span class="accent">Appminton</span></h1>
+    <p>A guided tour of everything Appminton does for your badminton group — from scheduling sessions to settling up, ranking players, and running the books.</p>
+    <div class="cta-group">
+        <a href="#feature-list" class="btn-primary">Explore Features</a>
+        <a href="/" class="btn-ghost">Back to home</a>
+    </div>
+</section>
+
+<!-- ── FEATURE SHOWCASE ── -->
+<section id="feature-list" style="padding-top: 4rem; padding-bottom: 2rem;">
+    <div class="feature-rows">
+
+        <!-- 1. Session Scheduling -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="/img/session_scheduling.png" alt="Appminton session scheduling screen">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="feature-eyebrow">🏸 Session Scheduling</span>
+                <h2>Set up a session in seconds</h2>
+                <p>Create sessions with court details, time slots, and player capacity, then invite friends and group members in a couple of taps.</p>
+                <ul class="feature-highlights">
+                    <li>Pick venue, date, time, and court fee</li>
+                    <li>Set a player cap and let people accept, decline, or KIV</li>
+                    <li>Invite individuals or a whole group at once</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. Fair Payment Splitting -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="/img/fair_payment_splitting.png" alt="Appminton payment splitting screen">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="feature-eyebrow">🪙 Fair Payment Splitting</span>
+                <h2>Everyone pays their fair share</h2>
+                <p>Appminton works out who owes what automatically, then suggests the simplest set of settlements so nobody's stuck doing maths in the group chat.</p>
+                <ul class="feature-highlights">
+                    <li>Four modes: flat, flat by gender, shuttle usage, shuttle + gender</li>
+                    <li>Optimal settlement — fewest transactions, maximum fairness</li>
+                    <li>One tap to mark a payment as settled</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3. Shuttle Tracking -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="/img/shuttle_tracking.png" alt="Appminton shuttle tracking screen">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="feature-eyebrow">🏹 Shuttle Tracking</span>
+                <h2>Count shuttles, not headaches</h2>
+                <p>Log shuttle consumption in real time during play, and let Appminton spread the cost proportionally across everyone who turned up.</p>
+                <ul class="feature-highlights">
+                    <li>Tap to add shuttles as the session goes</li>
+                    <li>Costs distributed by attendance, automatically</li>
+                    <li>No more guessing how many tubes you went through</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4. Group Management -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="/img/group_management.png" alt="Appminton group management screen">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="feature-eyebrow">👥 Group Management</span>
+                <h2>Keep your regulars in one place</h2>
+                <p>Organise your regular players into groups so getting a session together is as easy as a single tap.</p>
+                <ul class="feature-highlights">
+                    <li>Build groups of your usual playing crew</li>
+                    <li>Invite the whole group to a session instantly</li>
+                    <li>Members stay in sync across every session</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. Ranking & Analysis -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="/img/ranking_analysis.png" alt="Appminton ranking and analysis screen">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="feature-eyebrow">📊 Ranking &amp; Analysis</span>
+                <h2>See how everyone's really playing</h2>
+                <p>Every scored session feeds a detailed analysis and an ELO-based group leaderboard, so your community can track form, rivalries, and bragging rights over time.</p>
+                <ul class="feature-highlights">
+                    <li>Session analysis for every scored session</li>
+                    <li>ELO-based ranking system for the group leaderboard</li>
+                    <li>Insights that show trends across your sessions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6. Organizer Dashboard -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="/img/organizer_dashboard.png" alt="Appminton organizer dashboard screen">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="feature-eyebrow">📈 Organizer Dashboard</span>
+                <h2>Run the books with confidence</h2>
+                <p>Get an organizer's-eye view of every session you've run — see the money side at a glance and know exactly where things stand.</p>
+                <ul class="feature-highlights">
+                    <li>Overview of all the sessions you've organized</li>
+                    <li>Profit and loss per session, clearly broken down</li>
+                    <li>Track how much has been collected and what's outstanding</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── CTA BANNER ── -->
+<section class="cta-banner">
+    <div class="section-inner">
+        <h2>Ready to stop chasing payments?</h2>
+        <p>Join badminton groups already using Appminton to run smoother sessions.</p>
+        <div class="store-badges">
+            <a href="https://apps.apple.com/my/app/appminton/id6769790597" class="store-badge" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span class="store-badge-text"><small>Download on the</small>App Store</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.appminton.app" class="store-badge" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5zm2-13.85V17.35l9.03-5.35L5 6.65z"/></svg>
+                <span class="store-badge-text"><small>Get it on</small>Google Play</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <span class="footer-logo">Appminton</span>
+    <ul class="footer-links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/account-deletion">Account Deletion</a></li>
+        <li><a href="mailto:support@appminton.com">Contact</a></li>
+    </ul>
+    <p>&copy; 2025 Appminton. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
