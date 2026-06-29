@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us – Appminton</title>
-    <meta name="description" content="Appminton Technology is a Malaysian software company building practical digital products for communities and businesses, including Appminton, the operating system for badminton groups.">
+    <meta name="description"
+        content="Appminton Technology is a Malaysian software company building practical digital products for communities and businesses, including Appminton, the operating system for badminton groups.">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLCR81NVJH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TLCR81NVJH');
+    </script>
+
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
-            --green:  #10b981;
-            --bg:     #111827;
-            --bg2:    #1f2937;
-            --bg3:    #374151;
-            --text:   #f9fafb;
-            --muted:  #9ca3af;
+            --green: #10b981;
+            --bg: #111827;
+            --bg2: #1f2937;
+            --bg3: #374151;
+            --text: #f9fafb;
+            --muted: #9ca3af;
             --border: #1f2937;
         }
 
@@ -53,7 +72,9 @@
             text-decoration: none;
         }
 
-        .logo span { color: var(--text); }
+        .logo span {
+            color: var(--text);
+        }
 
         .nav-links {
             display: flex;
@@ -68,9 +89,15 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover {
+            color: var(--text);
+        }
 
-        @media (max-width: 600px) { .nav-links { display: none; } }
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+        }
 
         /* ── PAGE HEADER ── */
         .page-header {
@@ -111,7 +138,7 @@
             padding: 3rem 2rem 5rem;
         }
 
-        .content > .intro {
+        .content>.intro {
             color: var(--muted);
             font-size: 0.95rem;
             margin-bottom: 2rem;
@@ -148,14 +175,18 @@
             margin-bottom: 0.75rem;
         }
 
-        .section strong { color: var(--text); }
+        .section strong {
+            color: var(--text);
+        }
 
         .section a {
             color: var(--green);
             text-decoration: none;
         }
 
-        .section a:hover { text-decoration: underline; }
+        .section a:hover {
+            text-decoration: underline;
+        }
 
         /* ── BLOCKQUOTE ── */
         blockquote {
@@ -271,128 +302,150 @@
             transition: color 0.2s;
         }
 
-        footer .footer-links a:hover { color: var(--text); }
+        footer .footer-links a:hover {
+            color: var(--text);
+        }
 
-        footer p { color: var(--bg3); font-size: 0.8rem; }
+        footer p {
+            color: var(--bg3);
+            font-size: 0.8rem;
+        }
     </style>
 </head>
+
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-    <div class="nav-inner">
-        <a href="/" class="logo">App<span>minton</span></a>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <!-- ── NAV ── -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">App<span>minton</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<!-- ── PAGE HEADER ── -->
-<div class="page-header">
-    <div class="page-header-inner">
-        <div class="page-label">About Us</div>
-        <h1>Building Software That Solves Real Problems</h1>
-        <span class="subtitle">Appminton Technology — practical digital products for communities, businesses, and the future.</span>
-    </div>
-</div>
-
-<!-- ── CONTENT ── -->
-<div class="content">
-
-    <p class="intro">Appminton Technology is a Malaysian software company focused on creating practical digital solutions that improve how people organize, collaborate, and engage with their communities.</p>
-
-    <div class="section">
-        <p>We believe that great software should solve real-world problems in a simple and intuitive way. Rather than building technology for the sake of technology, we focus on developing products that remove friction from everyday activities and help people spend more time doing what they enjoy.</p>
-        <p>Our journey began with a simple observation: badminton groups often rely on multiple tools, spreadsheets, chat applications, and manual processes to organize sessions, manage costs, track attendance, and coordinate players. As badminton enthusiasts ourselves, we saw an opportunity to create a better solution.</p>
-        <p>This led to the creation of <strong>Appminton</strong>, our flagship product.</p>
-    </div>
-
-    <!-- Appminton -->
-    <div class="section">
-        <h2>Appminton</h2>
-        <p>Appminton is designed to be the operating system for badminton groups.</p>
-        <p>The platform helps players and organizers manage badminton sessions, attendance, rankings, costs, and payments in a single place. By bringing these workflows together, Appminton enables badminton groups to spend less time managing logistics and more time enjoying the sport.</p>
-        <p>Our vision is simple:</p>
-        <blockquote>When people think about organizing badminton, they should think about Appminton.</blockquote>
-    </div>
-
-    <!-- What We Do -->
-    <div class="section">
-        <h2>What We Do</h2>
-        <p>In addition to developing and operating Appminton, we provide software development services for businesses, organizations, and startups seeking modern digital solutions.</p>
-        <p>Our expertise includes:</p>
-        <ul>
-            <li>Web Application Development</li>
-            <li>Mobile Application Development</li>
-            <li>Backend API Development</li>
-            <li>Cloud Infrastructure &amp; Deployment</li>
-            <li>System Design &amp; Architecture</li>
-            <li>Custom Business Software Solutions</li>
-            <li>Digital Transformation &amp; Automation</li>
-        </ul>
-        <p>Whether it's a customer-facing platform, an internal business system, or a mobile application, we focus on building software that is reliable, scalable, and maintainable.</p>
-    </div>
-
-    <!-- Mission -->
-    <div class="section">
-        <h2>Our Mission</h2>
-        <p>To build software that simplifies everyday processes, strengthens communities, and creates meaningful value through technology.</p>
-    </div>
-
-    <!-- Vision -->
-    <div class="section">
-        <h2>Our Vision</h2>
-        <p>To become a trusted technology company known for creating practical digital products that solve real-world problems and improve how people connect, collaborate, and participate in their communities.</p>
-    </div>
-
-    <!-- Values -->
-    <div class="section">
-        <h2>Our Values</h2>
-        <div class="values-grid">
-            <div class="value-card">
-                <h3>Simplicity</h3>
-                <p>We believe the best software is easy to use and easy to understand.</p>
-            </div>
-            <div class="value-card">
-                <h3>Practicality</h3>
-                <p>Technology should solve genuine problems, not create new ones.</p>
-            </div>
-            <div class="value-card">
-                <h3>Reliability</h3>
-                <p>Users should be able to depend on the products and services we build.</p>
-            </div>
-            <div class="value-card">
-                <h3>Continuous Improvement</h3>
-                <p>We are committed to learning, iterating, and improving our products over time.</p>
-            </div>
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-label">About Us</div>
+            <h1>Building Software That Solves Real Problems</h1>
+            <span class="subtitle">Appminton Technology — practical digital products for communities, businesses, and
+                the future.</span>
         </div>
     </div>
 
-    <!-- Looking Ahead -->
-    <div class="section">
-        <h2>Looking Ahead</h2>
-        <p>As Appminton continues to grow, we remain committed to building technology that supports badminton communities while exploring new opportunities to create impactful digital products and services.</p>
-        <p>We are excited about the future and grateful to everyone who joins us on this journey.</p>
+    <!-- ── CONTENT ── -->
+    <div class="content">
+
+        <p class="intro">Appminton Technology is a Malaysian software company focused on creating practical digital
+            solutions that improve how people organize, collaborate, and engage with their communities.</p>
+
+        <div class="section">
+            <p>We believe that great software should solve real-world problems in a simple and intuitive way. Rather
+                than building technology for the sake of technology, we focus on developing products that remove
+                friction from everyday activities and help people spend more time doing what they enjoy.</p>
+            <p>Our journey began with a simple observation: badminton groups often rely on multiple tools, spreadsheets,
+                chat applications, and manual processes to organize sessions, manage costs, track attendance, and
+                coordinate players. As badminton enthusiasts ourselves, we saw an opportunity to create a better
+                solution.</p>
+            <p>This led to the creation of <strong>Appminton</strong>, our flagship product.</p>
+        </div>
+
+        <!-- Appminton -->
+        <div class="section">
+            <h2>Appminton</h2>
+            <p>Appminton is designed to be the operating system for badminton groups.</p>
+            <p>The platform helps players and organizers manage badminton sessions, attendance, rankings, costs, and
+                payments in a single place. By bringing these workflows together, Appminton enables badminton groups to
+                spend less time managing logistics and more time enjoying the sport.</p>
+            <p>Our vision is simple:</p>
+            <blockquote>When people think about organizing badminton, they should think about Appminton.</blockquote>
+        </div>
+
+        <!-- What We Do -->
+        <div class="section">
+            <h2>What We Do</h2>
+            <p>In addition to developing and operating Appminton, we provide software development services for
+                businesses, organizations, and startups seeking modern digital solutions.</p>
+            <p>Our expertise includes:</p>
+            <ul>
+                <li>Web Application Development</li>
+                <li>Mobile Application Development</li>
+                <li>Backend API Development</li>
+                <li>Cloud Infrastructure &amp; Deployment</li>
+                <li>System Design &amp; Architecture</li>
+                <li>Custom Business Software Solutions</li>
+                <li>Digital Transformation &amp; Automation</li>
+            </ul>
+            <p>Whether it's a customer-facing platform, an internal business system, or a mobile application, we focus
+                on building software that is reliable, scalable, and maintainable.</p>
+        </div>
+
+        <!-- Mission -->
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>To build software that simplifies everyday processes, strengthens communities, and creates meaningful
+                value through technology.</p>
+        </div>
+
+        <!-- Vision -->
+        <div class="section">
+            <h2>Our Vision</h2>
+            <p>To become a trusted technology company known for creating practical digital products that solve
+                real-world problems and improve how people connect, collaborate, and participate in their communities.
+            </p>
+        </div>
+
+        <!-- Values -->
+        <div class="section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Simplicity</h3>
+                    <p>We believe the best software is easy to use and easy to understand.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Practicality</h3>
+                    <p>Technology should solve genuine problems, not create new ones.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Reliability</h3>
+                    <p>Users should be able to depend on the products and services we build.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Continuous Improvement</h3>
+                    <p>We are committed to learning, iterating, and improving our products over time.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Looking Ahead -->
+        <div class="section">
+            <h2>Looking Ahead</h2>
+            <p>As Appminton continues to grow, we remain committed to building technology that supports badminton
+                communities while exploring new opportunities to create impactful digital products and services.</p>
+            <p>We are excited about the future and grateful to everyone who joins us on this journey.</p>
+        </div>
+
+        <!-- Closing -->
+        <div class="closing">
+            <strong>Appminton Technology</strong>
+            <p>Building practical software for communities, businesses, and the future.</p>
+        </div>
+
     </div>
 
-    <!-- Closing -->
-    <div class="closing">
-        <strong>Appminton Technology</strong>
-        <p>Building practical software for communities, businesses, and the future.</p>
-    </div>
-
-</div>
-
-<!-- ── FOOTER ── -->
-<footer>
-    <span class="footer-logo">Appminton</span>
-    <p>&copy; 2026 Appminton. All rights reserved.</p>
-</footer>
+    <!-- ── FOOTER ── -->
+    <footer>
+        <span class="footer-logo">Appminton</span>
+        <p>&copy; 2026 Appminton. All rights reserved.</p>
+    </footer>
 
 </body>
+
 </html>

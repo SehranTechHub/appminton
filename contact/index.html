@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us – Appminton</title>
-    <meta name="description" content="Get in touch with Appminton. Contact our support team for questions, feedback, or partnerships.">
+    <meta name="description"
+        content="Get in touch with Appminton. Contact our support team for questions, feedback, or partnerships.">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLCR81NVJH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TLCR81NVJH');
+    </script>
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
-            --green:  #10b981;
-            --bg:     #111827;
-            --bg2:    #1f2937;
-            --bg3:    #374151;
-            --text:   #f9fafb;
-            --muted:  #9ca3af;
+            --green: #10b981;
+            --bg: #111827;
+            --bg2: #1f2937;
+            --bg3: #374151;
+            --text: #f9fafb;
+            --muted: #9ca3af;
             --border: #1f2937;
         }
 
@@ -53,7 +71,9 @@
             text-decoration: none;
         }
 
-        .logo span { color: var(--text); }
+        .logo span {
+            color: var(--text);
+        }
 
         .nav-links {
             display: flex;
@@ -68,9 +88,15 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover {
+            color: var(--text);
+        }
 
-        @media (max-width: 600px) { .nav-links { display: none; } }
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+        }
 
         /* ── PAGE HEADER ── */
         .page-header {
@@ -111,7 +137,7 @@
             padding: 3rem 2rem 5rem;
         }
 
-        .content > p {
+        .content>p {
             color: var(--muted);
             font-size: 0.95rem;
             margin-bottom: 2rem;
@@ -268,112 +294,128 @@
             transition: color 0.2s;
         }
 
-        footer .footer-links a:hover { color: var(--text); }
+        footer .footer-links a:hover {
+            color: var(--text);
+        }
 
-        footer p { color: var(--bg3); font-size: 0.8rem; }
+        footer p {
+            color: var(--bg3);
+            font-size: 0.8rem;
+        }
     </style>
 </head>
+
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-    <div class="nav-inner">
-        <a href="/" class="logo">App<span>minton</span></a>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/account-deletion">Account Deletion</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
+    <!-- ── NAV ── -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">App<span>minton</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/account-deletion">Account Deletion</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ── -->
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="page-label">Get in Touch</div>
+            <h1>Contact Us</h1>
+            <span class="subtitle">Have questions or feedback? We'd love to hear from you.</span>
+        </div>
     </div>
-</nav>
 
-<!-- ── PAGE HEADER ── -->
-<div class="page-header">
-    <div class="page-header-inner">
-        <div class="page-label">Get in Touch</div>
-        <h1>Contact Us</h1>
-        <span class="subtitle">Have questions or feedback? We'd love to hear from you.</span>
-    </div>
-</div>
+    <!-- ── CONTENT ── -->
+    <div class="content">
 
-<!-- ── CONTENT ── -->
-<div class="content">
+        <p>Whether you have questions about Appminton, need support, want to report a bug, or are interested in
+            partnerships, we're here to help. Fill out the form below or use one of the contact methods listed.</p>
 
-    <p>Whether you have questions about Appminton, need support, want to report a bug, or are interested in partnerships, we're here to help. Fill out the form below or use one of the contact methods listed.</p>
+        <!-- Contact Form -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
-    <!-- Contact Form -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-group">
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required>
-        </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-        <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required>
-        </div>
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
 
-        <div class="form-group">
-            <label for="subject">Subject *</label>
-            <input type="text" id="subject" name="subject" required>
-        </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
 
-        <div class="form-group">
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" required></textarea>
-        </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
 
-        <button type="submit" class="submit-btn">Send Message</button>
-    </form>
+        <!-- Contact Methods -->
+        <div class="section">
+            <h2>Other Ways to Reach Us</h2>
 
-    <!-- Contact Methods -->
-    <div class="section">
-        <h2>Other Ways to Reach Us</h2>
-
-        <div class="contact-methods">
-            <div class="contact-method">
-                <h3>Email</h3>
-                <p><a href="mailto:support@appminton.com">support@appminton.com</a></p>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem;">Response time: Within 24 hours</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>Email</h3>
+                    <p><a href="mailto:support@appminton.com">support@appminton.com</a></p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Response time: Within 24 hours</p>
+                </div>
             </div>
         </div>
+
+        <!-- FAQ Section -->
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>How quickly will I get a response?</h3>
+            <p>We aim to respond to all inquiries within 24 hours during business days. For urgent matters, please mark
+                your message as such.</p>
+
+            <h3>What should I do if I found a bug?</h3>
+            <p>Please send a detailed description of the bug to <a
+                    href="mailto:support@appminton.com">support@appminton.com</a> along with steps to reproduce it.
+                Include your device type and app version if possible.</p>
+
+            <h3>Are you accepting partnership proposals?</h3>
+            <p>Yes! If you're interested in partnerships, sponsorships, or collaborations, please reach out to <a
+                    href="mailto:support@appminton.com">support@appminton.com</a> with details about your proposal.</p>
+
+            <h3>How can I request a new feature?</h3>
+            <p>We'd love to hear your suggestions! Please contact us at <a
+                    href="mailto:support@appminton.com">support@appminton.com</a> with your feature request and explain
+                how it would benefit the Appminton community.</p>
+
+            <h3>What languages do you support?</h3>
+            <p>Our support team primarily communicates in English and Malaysian (Bahasa Melayu). However, we'll do our
+                best to assist you in your preferred language.</p>
+        </div>
+
+        <!-- Response Time Info -->
+        <div class="section">
+            <h2>Response Time & Expectations</h2>
+            <p>Our support team operates during standard business hours (Monday – Friday, 9 AM – 6 PM MYT). For urgent
+                issues outside these hours, please send your message and we'll respond as soon as possible.</p>
+        </div>
+
     </div>
 
-    <!-- FAQ Section -->
-    <div class="section">
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>How quickly will I get a response?</h3>
-        <p>We aim to respond to all inquiries within 24 hours during business days. For urgent matters, please mark your message as such.</p>
-
-        <h3>What should I do if I found a bug?</h3>
-        <p>Please send a detailed description of the bug to <a href="mailto:support@appminton.com">support@appminton.com</a> along with steps to reproduce it. Include your device type and app version if possible.</p>
-
-        <h3>Are you accepting partnership proposals?</h3>
-        <p>Yes! If you're interested in partnerships, sponsorships, or collaborations, please reach out to <a href="mailto:support@appminton.com">support@appminton.com</a> with details about your proposal.</p>
-
-        <h3>How can I request a new feature?</h3>
-        <p>We'd love to hear your suggestions! Please contact us at <a href="mailto:support@appminton.com">support@appminton.com</a> with your feature request and explain how it would benefit the Appminton community.</p>
-
-        <h3>What languages do you support?</h3>
-        <p>Our support team primarily communicates in English and Malaysian (Bahasa Melayu). However, we'll do our best to assist you in your preferred language.</p>
-    </div>
-
-    <!-- Response Time Info -->
-    <div class="section">
-        <h2>Response Time & Expectations</h2>
-        <p>Our support team operates during standard business hours (Monday – Friday, 9 AM – 6 PM MYT). For urgent issues outside these hours, please send your message and we'll respond as soon as possible.</p>
-    </div>
-
-</div>
-
-<!-- ── FOOTER ── -->
-<footer>
-    <span class="footer-logo">Appminton</span>
-    <p>&copy; 2026 Appminton. All rights reserved.</p>
-</footer>
+    <!-- ── FOOTER ── -->
+    <footer>
+        <span class="footer-logo">Appminton</span>
+        <p>&copy; 2026 Appminton. All rights reserved.</p>
+    </footer>
 
 </body>
+
 </html>

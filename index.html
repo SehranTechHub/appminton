@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appminton – Badminton Session Management</title>
-    <meta name="description" content="Track shuttlecock usage, split payments fairly, and organise badminton sessions without the hassle.">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta name="description"
+        content="Track shuttlecock usage, split payments fairly, and organise badminton sessions without the hassle.">
 
-        :root {
-            --green:   #10b981;
-            --green-d: #059669;
-            --bg:      #111827;
-            --bg2:     #1f2937;
-            --bg3:     #374151;
-            --text:    #f9fafb;
-            --muted:   #9ca3af;
-            --border:  #1f2937;
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLCR81NVJH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TLCR81NVJH');
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        html { scroll-behavior: smooth; }
+        :root {
+            --green: #10b981;
+            --green-d: #059669;
+            --bg: #111827;
+            --bg2: #1f2937;
+            --bg3: #374151;
+            --text: #f9fafb;
+            --muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -56,7 +77,9 @@
             text-decoration: none;
         }
 
-        .logo span { color: var(--text); }
+        .logo span {
+            color: var(--text);
+        }
 
         .nav-links {
             display: flex;
@@ -71,7 +94,9 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover {
+            color: var(--text);
+        }
 
         /* ── HERO ── */
         .hero {
@@ -102,7 +127,9 @@
             margin: 0 auto 1.25rem;
         }
 
-        .hero h1 .accent { color: var(--green); }
+        .hero h1 .accent {
+            color: var(--green);
+        }
 
         .hero p {
             font-size: 1.1rem;
@@ -129,7 +156,10 @@
             transition: background 0.2s, transform 0.15s;
         }
 
-        .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+        .btn-primary:hover {
+            background: var(--green-d);
+            transform: translateY(-1px);
+        }
 
         .btn-ghost {
             border: 1px solid var(--bg3);
@@ -142,7 +172,10 @@
             transition: border-color 0.2s, background 0.2s;
         }
 
-        .btn-ghost:hover { border-color: var(--green); background: rgba(16,185,129,0.06); }
+        .btn-ghost:hover {
+            border-color: var(--green);
+            background: rgba(16, 185, 129, 0.06);
+        }
 
         /* ── SOCIAL PROOF ── */
         .proof {
@@ -151,7 +184,13 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .proof p { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.5px; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .proof p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
 
         .proof-stats {
             display: flex;
@@ -160,12 +199,25 @@
             flex-wrap: wrap;
         }
 
-        .stat { text-align: center; }
-        .stat .num { font-size: 1.8rem; font-weight: 800; color: var(--green); }
-        .stat .label { font-size: 0.85rem; color: var(--muted); }
+        .stat {
+            text-align: center;
+        }
+
+        .stat .num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .stat .label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
 
         /* ── SECTION SHARED ── */
-        section { padding: 5rem 2rem; }
+        section {
+            padding: 5rem 2rem;
+        }
 
         .section-inner {
             max-width: 1100px;
@@ -209,7 +261,10 @@
             transition: border-color 0.2s, transform 0.2s;
         }
 
-        .feature-card:hover { border-color: var(--green); transform: translateY(-3px); }
+        .feature-card:hover {
+            border-color: var(--green);
+            transform: translateY(-3px);
+        }
 
         .feature-icon {
             font-size: 2rem;
@@ -229,7 +284,11 @@
         }
 
         /* ── HOW IT WORKS ── */
-        .how-bg { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .how-bg {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
 
         .steps {
             display: grid;
@@ -238,14 +297,16 @@
             counter-reset: step;
         }
 
-        .step { position: relative; }
+        .step {
+            position: relative;
+        }
 
         .step-num {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(16,185,129,0.12);
-            border: 1px solid rgba(16,185,129,0.3);
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
             color: var(--green);
             font-weight: 800;
             font-size: 0.9rem;
@@ -255,9 +316,17 @@
             margin-bottom: 1rem;
         }
 
-        .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
 
-        .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+        .step p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
 
         /* ── PAYMENT SECTION ── */
         .payment-grid {
@@ -268,7 +337,9 @@
         }
 
         @media (max-width: 680px) {
-            .payment-grid { grid-template-columns: 1fr; }
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .payment-visual {
@@ -287,11 +358,21 @@
             font-size: 0.9rem;
         }
 
-        .pay-row:last-child { border-bottom: none; }
-        .pay-row .name { color: var(--text); }
-        .pay-row .amount { color: var(--green); font-weight: 700; }
+        .pay-row:last-child {
+            border-bottom: none;
+        }
+
+        .pay-row .name {
+            color: var(--text);
+        }
+
+        .pay-row .amount {
+            color: var(--green);
+            font-weight: 700;
+        }
+
         .pay-row .tag {
-            background: rgba(16,185,129,0.1);
+            background: rgba(16, 185, 129, 0.1);
             color: var(--green);
             border-radius: 4px;
             padding: 2px 8px;
@@ -300,8 +381,8 @@
 
         .pay-type-badge {
             display: inline-block;
-            background: rgba(16,185,129,0.08);
-            border: 1px solid rgba(16,185,129,0.2);
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
             color: var(--muted);
             border-radius: 6px;
             padding: 0.4rem 0.8rem;
@@ -334,8 +415,16 @@
             border-top: 1px solid var(--border);
         }
 
-        .cta-banner h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; }
-        .cta-banner p { color: var(--muted); margin-bottom: 2rem; }
+        .cta-banner h2 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
 
         /* ── FOOTER ── */
         footer {
@@ -369,9 +458,14 @@
             transition: color 0.2s;
         }
 
-        footer .footer-links a:hover { color: var(--text); }
+        footer .footer-links a:hover {
+            color: var(--text);
+        }
 
-        footer p { color: var(--bg3); font-size: 0.8rem; }
+        footer p {
+            color: var(--bg3);
+            font-size: 0.8rem;
+        }
 
         /* ── STORE BADGES ── */
         .store-badges {
@@ -397,18 +491,34 @@
             min-width: 148px;
         }
 
-        .store-badge:hover { opacity: 0.88; transform: translateY(-1px); }
+        .store-badge:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
 
-        .store-badge svg { flex-shrink: 0; }
+        .store-badge svg {
+            flex-shrink: 0;
+        }
 
-        .store-badge-text { text-align: left; line-height: 1.2; }
-        .store-badge-text small { display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.65; }
+        .store-badge-text {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .store-badge-text small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.65;
+        }
 
         /* ── MOBILE STICKY BANNER ── */
         #mobile-banner {
             display: none;
             position: fixed;
-            bottom: 0; left: 0; right: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             z-index: 200;
             background: var(--bg2);
             border-top: 1px solid var(--border);
@@ -417,13 +527,30 @@
             gap: 1rem;
         }
 
-        #mobile-banner.visible { display: flex; }
+        #mobile-banner.visible {
+            display: flex;
+        }
 
-        .mobile-banner-info { flex: 1; }
-        .mobile-banner-info strong { display: block; font-size: 0.95rem; font-weight: 700; }
-        .mobile-banner-info span { font-size: 0.8rem; color: var(--muted); }
+        .mobile-banner-info {
+            flex: 1;
+        }
 
-        #mobile-banner .btn-primary { white-space: nowrap; padding: 0.65rem 1.25rem; font-size: 0.85rem; }
+        .mobile-banner-info strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .mobile-banner-info span {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        #mobile-banner .btn-primary {
+            white-space: nowrap;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.85rem;
+        }
 
         #mobile-banner-close {
             background: none;
@@ -437,287 +564,327 @@
 
         /* ── RESPONSIVE NAV ── */
         @media (max-width: 600px) {
-            .nav-links { display: none; }
+            .nav-links {
+                display: none;
+            }
         }
     </style>
+
 </head>
+
 <body>
 
-<!-- ── MOBILE STICKY BANNER ── -->
-<div id="mobile-banner" role="complementary" aria-label="Download Appminton">
-    <button id="mobile-banner-close" aria-label="Dismiss">&times;</button>
-    <div class="mobile-banner-info">
-        <strong>Appminton</strong>
-        <span id="mobile-banner-subtitle">Available on your device</span>
-    </div>
-    <a id="mobile-banner-link" href="#" class="btn-primary">Download</a>
-</div>
-
-<!-- ── NAV ── -->
-<nav>
-    <div class="nav-inner">
-        <a href="/" class="logo">App<span>minton</span></a>
-        <ul class="nav-links">
-            <li><a href="/features">Features</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#payments">Payments</a></li>
-            <li><a href="/about">About Us</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- ── HERO ── -->
-<section class="hero">
-    <div class="badge">Now available</div>
-    <h1>Badminton sessions,<br><span class="accent">managed effortlessly</span></h1>
-    <p>Track shuttlecock usage, split costs fairly, and coordinate your group — all in one place. No awkward money conversations, no admin headaches.</p>
-    <div class="cta-group">
-        <a href="/features" class="btn-primary">Explore Features</a>
-        <a href="#how-it-works" class="btn-ghost">How it works</a>
-    </div>
-    <div class="store-badges">
-        <!-- Update href values once app store listings are live -->
-        <a href="https://apps.apple.com/app/appminton" class="store-badge" id="hero-appstore-btn" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            <span class="store-badge-text"><small>Download on the</small>App Store</span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.appminton" class="store-badge" id="hero-playstore-btn" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5zm2-13.85V17.35l9.03-5.35L5 6.65z"/></svg>
-            <span class="store-badge-text"><small>Get it on</small>Google Play</span>
-        </a>
-    </div>
-</section>
-
-<!-- ── SOCIAL PROOF ── -->
-<div class="proof">
-    <p>Built for badminton communities</p>
-    <div class="proof-stats">
-        <div class="stat">
-            <div class="num">4</div>
-            <div class="label">Payment modes</div>
+    <!-- ── MOBILE STICKY BANNER ── -->
+    <div id="mobile-banner" role="complementary" aria-label="Download Appminton">
+        <button id="mobile-banner-close" aria-label="Dismiss">&times;</button>
+        <div class="mobile-banner-info">
+            <strong>Appminton</strong>
+            <span id="mobile-banner-subtitle">Available on your device</span>
         </div>
-        <div class="stat">
-            <div class="num">Real-time</div>
-            <div class="label">Session updates</div>
-        </div>
-        <div class="stat">
-            <div class="num">Zero</div>
-            <div class="label">Awkward conversations</div>
-        </div>
-        <div class="stat">
-            <div class="num">Multi-channel</div>
-            <div class="label">Notifications</div>
-        </div>
+        <a id="mobile-banner-link" href="#" class="btn-primary">Download</a>
     </div>
-</div>
 
-<!-- ── FROM A FELLOW PLAYER ── -->
-<section class="player-note how-bg">
-    <div class="section-inner">
-        <div class="note-card">
-            <div class="section-label">From a fellow player</div>
-            <h2 class="section-title">Built by someone who plays — for people who play</h2>
-            <p>Appminton wasn't dreamt up in a boardroom. It was built by a badminton player who got tired of the same Saturday-morning routine: chasing payments in the group chat, counting shuttles on a notepad, and doing the maths on who owes what after every session.</p>
-            <p>If you play because you love the game — the rallies, the regulars, the after-game teh tarik — then this was made for you. The goal was simple: take care of the boring admin so you can spend more time on court and less time being the group's accountant.</p>
-            <p class="note-sign">— Made with passion, by a player who shows up week after week, same as you. 🏸</p>
+    <!-- ── NAV ── -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">App<span>minton</span></a>
+            <ul class="nav-links">
+                <li><a href="/features">Features</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#payments">Payments</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- ── FEATURES ── -->
-<section id="features">
-    <div class="section-inner">
-        <div class="section-label">Features</div>
-        <h2 class="section-title">Everything your group needs</h2>
-        <p class="section-sub">From booking to settlement — Appminton handles the details so you can focus on the game.</p>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🏸</div>
-                <h3>Session Scheduling</h3>
-                <p>Create sessions with court details, time slots, and player capacity. Invite friends and group members in seconds.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🪙</div>
-                <h3>Fair Payment Splitting</h3>
-                <p>Automatically calculate who owes what. Supports flat splits, gender-based rates, and shuttle-usage billing.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏹</div>
-                <h3>Shuttle Tracking</h3>
-                <p>Log shuttle consumption in real time during play. Costs are distributed proportionally to attendance.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Group Management</h3>
-                <p>Organise regular players into groups. Invite the whole group to a session with a single tap.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Ranking &amp; Analysis</h3>
-                <p>Session analysis for every scored session, plus an ELO-based group leaderboard and insights to see how everyone's playing.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📈</div>
-                <h3>Organizer Dashboard</h3>
-                <p>An organizer's-eye view of every session run — profit and loss, how much has been collected, and what's still outstanding.</p>
-            </div>
+    <!-- ── HERO ── -->
+    <section class="hero">
+        <div class="badge">Now available</div>
+        <h1>Badminton sessions,<br><span class="accent">managed effortlessly</span></h1>
+        <p>Track shuttlecock usage, split costs fairly, and coordinate your group — all in one place. No awkward money
+            conversations, no admin headaches.</p>
+        <div class="cta-group">
+            <a href="/features" class="btn-primary">Explore Features</a>
+            <a href="#how-it-works" class="btn-ghost">How it works</a>
         </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="/features" class="btn-primary">See all features &rarr;</a>
-        </div>
-    </div>
-</section>
-
-<!-- ── HOW IT WORKS ── -->
-<section id="how-it-works" class="how-bg">
-    <div class="section-inner">
-        <div class="section-label">How it works</div>
-        <h2 class="section-title">From invite to settled in minutes</h2>
-        <p class="section-sub" style="margin-bottom: 3rem;">A simple flow that works for casual groups and competitive regulars alike.</p>
-
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">1</div>
-                <h3>Create a session</h3>
-                <p>Set the date, venue, court fee, and maximum players. Choose your payment mode — flat, by gender, or by shuttle usage.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <h3>Invite your players</h3>
-                <p>Send invites to friends or entire groups. Players accept, decline, or KIV directly from the app.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <h3>Track the session</h3>
-                <p>Mark attendance, log shuttles used, and update the session as it progresses. Everything is recorded in real time.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <h3>Settle up</h3>
-                <p>Appminton calculates the optimal settlement — minimum transactions, maximum fairness. One tap to confirm payments.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── PAYMENTS ── -->
-<section id="payments">
-    <div class="section-inner">
-        <div class="payment-grid">
-            <div>
-                <div class="section-label">Payments</div>
-                <h2 class="section-title">Four flexible payment modes</h2>
-                <p style="color: var(--muted); margin-bottom: 1.5rem;">Whether your group splits everything evenly or factors in gender pricing and shuttle consumption — Appminton has a mode for it.</p>
-                <div>
-                    <span class="pay-type-badge">Flat split</span>
-                    <span class="pay-type-badge">Flat by gender</span>
-                    <span class="pay-type-badge">Shuttle usage</span>
-                    <span class="pay-type-badge">Shuttle + gender</span>
-                </div>
-            </div>
-            <div class="payment-visual">
-                <div style="font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Settlement Summary</div>
-                <div class="pay-row">
-                    <span class="name">Alex → Jamie</span>
-                    <span class="amount">RM 8.50</span>
-                    <span class="tag">pending</span>
-                </div>
-                <div class="pay-row">
-                    <span class="name">Sam → Alex</span>
-                    <span class="amount">RM 12.00</span>
-                    <span class="tag">pending</span>
-                </div>
-                <div class="pay-row">
-                    <span class="name">Jordan → Jamie</span>
-                    <span class="amount">RM 6.00</span>
-                    <span class="tag" style="background: rgba(16,185,129,0.15); color: var(--green);">paid</span>
-                </div>
-                <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--bg3); display: flex; justify-content: space-between; font-size: 0.85rem;">
-                    <span style="color: var(--muted);">Total court + shuttles</span>
-                    <span style="color: var(--text); font-weight: 700;">RM 84.00</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── CTA BANNER ── -->
-<section class="cta-banner">
-    <div class="section-inner">
-        <h2>Ready to stop chasing payments?</h2>
-        <p>Join badminton groups already using Appminton to run smoother sessions.</p>
         <div class="store-badges">
-            <a href="https://apps.apple.com/app/appminton" class="store-badge" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <!-- Update href values once app store listings are live -->
+            <a href="https://apps.apple.com/app/appminton" class="store-badge" id="hero-appstore-btn" target="_blank"
+                rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
                 <span class="store-badge-text"><small>Download on the</small>App Store</span>
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.appminton" class="store-badge" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5zm2-13.85V17.35l9.03-5.35L5 6.65z"/></svg>
+            <a href="https://play.google.com/store/apps/details?id=com.appminton" class="store-badge"
+                id="hero-playstore-btn" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5zm2-13.85V17.35l9.03-5.35L5 6.65z" />
+                </svg>
                 <span class="store-badge-text"><small>Get it on</small>Google Play</span>
             </a>
         </div>
+    </section>
+
+    <!-- ── SOCIAL PROOF ── -->
+    <div class="proof">
+        <p>Built for badminton communities</p>
+        <div class="proof-stats">
+            <div class="stat">
+                <div class="num">4</div>
+                <div class="label">Payment modes</div>
+            </div>
+            <div class="stat">
+                <div class="num">Real-time</div>
+                <div class="label">Session updates</div>
+            </div>
+            <div class="stat">
+                <div class="num">Zero</div>
+                <div class="label">Awkward conversations</div>
+            </div>
+            <div class="stat">
+                <div class="num">Multi-channel</div>
+                <div class="label">Notifications</div>
+            </div>
+        </div>
     </div>
-</section>
 
-<!-- ── FOOTER ── -->
-<footer>
-    <span class="footer-logo">Appminton</span>
-    <ul class="footer-links">
-        <li><a href="/features">Features</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/privacy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-        <li><a href="/account-deletion">Account Deletion</a></li>
-        <li><a href="mailto:support@appminton.com">Contact</a></li>
-    </ul>
-    <p>&copy; 2025 Appminton. All rights reserved.</p>
-</footer>
+    <!-- ── FROM A FELLOW PLAYER ── -->
+    <section class="player-note how-bg">
+        <div class="section-inner">
+            <div class="note-card">
+                <div class="section-label">From a fellow player</div>
+                <h2 class="section-title">Built by someone who plays — for people who play</h2>
+                <p>Appminton wasn't dreamt up in a boardroom. It was built by a badminton player who got tired of the
+                    same Saturday-morning routine: chasing payments in the group chat, counting shuttles on a notepad,
+                    and doing the maths on who owes what after every session.</p>
+                <p>If you play because you love the game — the rallies, the regulars, the after-game teh tarik — then
+                    this was made for you. The goal was simple: take care of the boring admin so you can spend more time
+                    on court and less time being the group's accountant.</p>
+                <p class="note-sign">— Made with passion, by a player who shows up week after week, same as you. 🏸</p>
+            </div>
+        </div>
+    </section>
 
-<script>
-    // ── Store URLs — update these once listings are live ──
-    var STORE_URLS = {
-        ios:     'https://apps.apple.com/my/app/appminton/id6769790597',
-        android: 'https://play.google.com/store/apps/details?id=com.appminton.app'
-    };
+    <!-- ── FEATURES ── -->
+    <section id="features">
+        <div class="section-inner">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Everything your group needs</h2>
+            <p class="section-sub">From booking to settlement — Appminton handles the details so you can focus on the
+                game.</p>
 
-    (function () {
-        var ua = navigator.userAgent || '';
-        var isIOS     = /iPhone|iPad|iPod/i.test(ua);
-        var isAndroid = /Android/i.test(ua);
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏸</div>
+                    <h3>Session Scheduling</h3>
+                    <p>Create sessions with court details, time slots, and player capacity. Invite friends and group
+                        members in seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🪙</div>
+                    <h3>Fair Payment Splitting</h3>
+                    <p>Automatically calculate who owes what. Supports flat splits, gender-based rates, and
+                        shuttle-usage billing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏹</div>
+                    <h3>Shuttle Tracking</h3>
+                    <p>Log shuttle consumption in real time during play. Costs are distributed proportionally to
+                        attendance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Group Management</h3>
+                    <p>Organise regular players into groups. Invite the whole group to a session with a single tap.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Ranking &amp; Analysis</h3>
+                    <p>Session analysis for every scored session, plus an ELO-based group leaderboard and insights to
+                        see how everyone's playing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Organizer Dashboard</h3>
+                    <p>An organizer's-eye view of every session run — profit and loss, how much has been collected, and
+                        what's still outstanding.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/features" class="btn-primary">See all features &rarr;</a>
+            </div>
+        </div>
+    </section>
 
-        if (!isIOS && !isAndroid) return; // desktop — show both badges, no redirect
+    <!-- ── HOW IT WORKS ── -->
+    <section id="how-it-works" class="how-bg">
+        <div class="section-inner">
+            <div class="section-label">How it works</div>
+            <h2 class="section-title">From invite to settled in minutes</h2>
+            <p class="section-sub" style="margin-bottom: 3rem;">A simple flow that works for casual groups and
+                competitive regulars alike.</p>
 
-        var storeUrl = isIOS ? STORE_URLS.ios : STORE_URLS.android;
-        var storeLabel = isIOS ? 'Download on the App Store' : 'Get it on Google Play';
-        var storeSubtitle = isIOS ? 'Available on the App Store' : 'Available on Google Play';
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Create a session</h3>
+                    <p>Set the date, venue, court fee, and maximum players. Choose your payment mode — flat, by gender,
+                        or by shuttle usage.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>Invite your players</h3>
+                    <p>Send invites to friends or entire groups. Players accept, decline, or KIV directly from the app.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Track the session</h3>
+                    <p>Mark attendance, log shuttles used, and update the session as it progresses. Everything is
+                        recorded in real time.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h3>Settle up</h3>
+                    <p>Appminton calculates the optimal settlement — minimum transactions, maximum fairness. One tap to
+                        confirm payments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Show sticky bottom banner
-        var banner   = document.getElementById('mobile-banner');
-        var link     = document.getElementById('mobile-banner-link');
-        var subtitle = document.getElementById('mobile-banner-subtitle');
-        var closeBtn = document.getElementById('mobile-banner-close');
+    <!-- ── PAYMENTS ── -->
+    <section id="payments">
+        <div class="section-inner">
+            <div class="payment-grid">
+                <div>
+                    <div class="section-label">Payments</div>
+                    <h2 class="section-title">Four flexible payment modes</h2>
+                    <p style="color: var(--muted); margin-bottom: 1.5rem;">Whether your group splits everything evenly
+                        or factors in gender pricing and shuttle consumption — Appminton has a mode for it.</p>
+                    <div>
+                        <span class="pay-type-badge">Flat split</span>
+                        <span class="pay-type-badge">Flat by gender</span>
+                        <span class="pay-type-badge">Shuttle usage</span>
+                        <span class="pay-type-badge">Shuttle + gender</span>
+                    </div>
+                </div>
+                <div class="payment-visual">
+                    <div
+                        style="font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                        Settlement Summary</div>
+                    <div class="pay-row">
+                        <span class="name">Alex → Jamie</span>
+                        <span class="amount">RM 8.50</span>
+                        <span class="tag">pending</span>
+                    </div>
+                    <div class="pay-row">
+                        <span class="name">Sam → Alex</span>
+                        <span class="amount">RM 12.00</span>
+                        <span class="tag">pending</span>
+                    </div>
+                    <div class="pay-row">
+                        <span class="name">Jordan → Jamie</span>
+                        <span class="amount">RM 6.00</span>
+                        <span class="tag" style="background: rgba(16,185,129,0.15); color: var(--green);">paid</span>
+                    </div>
+                    <div
+                        style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--bg3); display: flex; justify-content: space-between; font-size: 0.85rem;">
+                        <span style="color: var(--muted);">Total court + shuttles</span>
+                        <span style="color: var(--text); font-weight: 700;">RM 84.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        link.href        = storeUrl;
-        link.textContent = isIOS ? 'App Store' : 'Play Store';
-        subtitle.textContent = storeSubtitle;
-        banner.classList.add('visible');
+    <!-- ── CTA BANNER ── -->
+    <section class="cta-banner">
+        <div class="section-inner">
+            <h2>Ready to stop chasing payments?</h2>
+            <p>Join badminton groups already using Appminton to run smoother sessions.</p>
+            <div class="store-badges">
+                <a href="https://apps.apple.com/app/appminton" class="store-badge" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                    <span class="store-badge-text"><small>Download on the</small>App Store</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.appminton" class="store-badge"
+                    target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5zm2-13.85V17.35l9.03-5.35L5 6.65z" />
+                    </svg>
+                    <span class="store-badge-text"><small>Get it on</small>Google Play</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        closeBtn.addEventListener('click', function () {
-            banner.classList.remove('visible');
-        });
+    <!-- ── FOOTER ── -->
+    <footer>
+        <span class="footer-logo">Appminton</span>
+        <ul class="footer-links">
+            <li><a href="/features">Features</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/account-deletion">Account Deletion</a></li>
+            <li><a href="mailto:support@appminton.com">Contact</a></li>
+        </ul>
+        <p>&copy; 2025 Appminton. All rights reserved.</p>
+    </footer>
 
-        // Highlight the relevant hero badge, dim the other
-        var appstoreBtn  = document.getElementById('hero-appstore-btn');
-        var playstoreBtn = document.getElementById('hero-playstore-btn');
-        if (isIOS) {
-            playstoreBtn.style.opacity = '0.35';
-        } else {
-            appstoreBtn.style.opacity = '0.35';
-        }
-    })();
-</script>
+    <script>
+        // ── Store URLs — update these once listings are live ──
+        var STORE_URLS = {
+            ios: 'https://apps.apple.com/my/app/appminton/id6769790597',
+            android: 'https://play.google.com/store/apps/details?id=com.appminton.app'
+        };
+
+        (function () {
+            var ua = navigator.userAgent || '';
+            var isIOS = /iPhone|iPad|iPod/i.test(ua);
+            var isAndroid = /Android/i.test(ua);
+
+            if (!isIOS && !isAndroid) return; // desktop — show both badges, no redirect
+
+            var storeUrl = isIOS ? STORE_URLS.ios : STORE_URLS.android;
+            var storeLabel = isIOS ? 'Download on the App Store' : 'Get it on Google Play';
+            var storeSubtitle = isIOS ? 'Available on the App Store' : 'Available on Google Play';
+
+            // Show sticky bottom banner
+            var banner = document.getElementById('mobile-banner');
+            var link = document.getElementById('mobile-banner-link');
+            var subtitle = document.getElementById('mobile-banner-subtitle');
+            var closeBtn = document.getElementById('mobile-banner-close');
+
+            link.href = storeUrl;
+            link.textContent = isIOS ? 'App Store' : 'Play Store';
+            subtitle.textContent = storeSubtitle;
+            banner.classList.add('visible');
+
+            closeBtn.addEventListener('click', function () {
+                banner.classList.remove('visible');
+            });
+
+            // Highlight the relevant hero badge, dim the other
+            var appstoreBtn = document.getElementById('hero-appstore-btn');
+            var playstoreBtn = document.getElementById('hero-playstore-btn');
+            if (isIOS) {
+                playstoreBtn.style.opacity = '0.35';
+            } else {
+                appstoreBtn.style.opacity = '0.35';
+            }
+        })();
+    </script>
 
 </body>
+
 </html>
